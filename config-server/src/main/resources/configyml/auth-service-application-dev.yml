@@ -2,6 +2,10 @@ server:
   port: 9090
 
 spring:
+  security:
+    user:
+      name: mehmet
+      password: 123456
   datasource:
     url: 'jdbc:postgresql://localhost:5432/YarismaProjesi'
     username: 'postgres'
@@ -12,8 +16,11 @@ spring:
       ddl-auto: update
     show-sql: true
 
+
+
+
 raceapplication:
   url:
     auth: http://localhost:9090/
-    main: http://localhost:9090/
-    user: http://localhost:9090/
+    main: http://localhost:9091/
+    user: http://localhost:9092/

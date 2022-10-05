@@ -25,6 +25,7 @@ public class Sorular {
     int cevapadedi;
     String grupadi;
     @Enumerated(EnumType.STRING)
+    @Builder.Default
     State state = State.ONAYDA;
     @Embedded
     TableAdd tableAdd;

@@ -23,6 +23,7 @@ public class YarismaSorulari {
     Long sure;
     int sirano;
     @Enumerated(EnumType.STRING)
+    @Builder.Default
     State state = State.ONAYLANMIS;
     @Embedded
     TableAdd tableAdd;

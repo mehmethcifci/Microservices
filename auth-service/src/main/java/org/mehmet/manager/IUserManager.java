@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @FeignClient(url= "${raceapplication.url.user}v1/api/user", name="user-service-profile", decode404 = true)
 public interface IUserManager {
     @PostMapping("/newcreateuser")
-    ResponseEntity<Boolean> NewUserCreate(NewUserCreateDto dto);
+    ResponseEntity<Void> NewUserCreate(NewUserCreateDto dto);
 
 
 

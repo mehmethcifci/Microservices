@@ -11,6 +11,7 @@ import java.util.List;
 @Data
 @Builder
 public class SoruEklemeRequestDto {
+    private String token;
     private SoruRequestDto soru;
     private List<CevaplarRequestDto> cevaplar;
 }

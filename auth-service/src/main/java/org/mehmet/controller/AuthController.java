@@ -4,7 +4,7 @@ import org.mehmet.dto.request.DoLoginRequestDto;
 import org.mehmet.dto.request.RegisterRequestDto;
 import org.mehmet.repository.entity.Auth;
 import org.mehmet.service.AuthService;
-import org.mehmet.utility.JwtTokenManager;
+import org.mehmet.config.security.JwtTokenManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -26,8 +26,10 @@ public class Yarisma {
     String resim;
     int kazanacakkisisayisi;
     @Enumerated(EnumType.STRING)
+    @Builder.Default
     YarismaDurumu yarismaDurumu = YarismaDurumu.AKTIF_KATILIMA_ACIK;
     @Enumerated(EnumType.STRING)
+    @Builder.Default
     State state = State.ONAYDA;
     @Embedded
     TableAdd tableAdd;

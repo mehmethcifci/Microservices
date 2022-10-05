@@ -13,5 +13,9 @@ public class ApiUrl {
 
     public static final String MAIN = "/main";
     public static final String SORU_GRUP = "/sorugrup";
+    public static final String SORU= "/soru";
+    public static final String YARISMA= "/yarisma";
+    public static final String YARISMA_SORULARI= "/yarismasorulari";
     public static final String CREATE_SORU_GROUP = "/createsorugroup";
+    public static final String CREATE = "/create";
 }
