@@ -4,6 +4,9 @@ import org.mehmet.dto.request.NewUserCreateDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import javax.validation.Valid;
 
 /**
  * Başka bir microserviceteki endpointleri çağırmak için kullanılır
@@ -13,7 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @FeignClient(url= "${raceapplication.url.user}v1/api/user", name="user-service-profile", decode404 = true)
 public interface IUserManager {
     @PostMapping("/newcreateuser")
-    ResponseEntity<Void> NewUserCreate(NewUserCreateDto dto);
+    ResponseEntity<Void> NewUserCreate(@RequestBody @Valid NewUserCreateDto dto);
 
 
 

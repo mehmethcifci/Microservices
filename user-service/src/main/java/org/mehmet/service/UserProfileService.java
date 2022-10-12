@@ -6,14 +6,21 @@ import org.mehmet.mapper.IUserProfileMapper;
 import org.mehmet.repository.IUserProfileRepository;
 import org.mehmet.repository.entity.UserProfile;
 import org.mehmet.utility.ServiceManager;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
 public class UserProfileService extends ServiceManager<UserProfile,Long> {
 
     private final IUserProfileRepository repository;
+    @Autowired
+    CacheManager cacheManager;
     public UserProfileService(IUserProfileRepository repository){
         super(repository);
         this.repository = repository;
@@ -38,6 +45,32 @@ public class UserProfileService extends ServiceManager<UserProfile,Long> {
         }catch (Exception e){
             return false;
         }
+    }
+
+    public Page<UserProfile> findAllPage(int currentPage, int pageSize, String sortParameter, String direction){
+        Sort sort = Sort.by(Sort.Direction.fromString(direction),sortParameter);
+        Pageable pageable = PageRequest.of(currentPage,pageSize,sort);
+        return repository.findAll(pageable);
+    }
+
+    public Slice<UserProfile> findallSlice(int currentPage, int pageSize, String sortParameter, String direction){
+        Sort sort = Sort.by(Sort.Direction.fromString(direction),sortParameter);
+        Pageable slice = PageRequest.of(currentPage, pageSize, sort);
+        return repository.findAll(slice);
+    }
+
+    public void clearCache(String key,String parameter){
+        cacheManager.getCache(key).evict(parameter);
+    }
+    /**
+     * [Method Adı] :: [Değer] -> id
+     * Clear ->
+     * */
+    @Cacheable(value = "userprofile_getall")
+    public List<UserProfile> getAllCache() {
+
+        return repository.findAll();
+
     }
 }
 

@@ -44,7 +44,8 @@ allprojects{
         implementation libs.openApi
         implementation libs.springOpenFeign
         implementation libs.javaJWT
-
+        implementation libs.springCloudSleuthZipkin
+        implementation libs.springCloudStarterSleuth
     }
 }
 configurations {

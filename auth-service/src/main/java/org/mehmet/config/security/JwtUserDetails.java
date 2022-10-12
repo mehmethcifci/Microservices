@@ -32,7 +32,7 @@ public class JwtUserDetails implements UserDetailsService {
         boolean isUserExist = authService.findById(authId).getId() != null;
         if (isUserExist){
             /**
-             * Burada oluşturulan kullanıcı, hangi sayfalara giriş yapabileceğinin anlaşılabilmesi kontrıl edilebilmesi
+             * Burada oluşturulan kullanıcı, hangi sayfalara giriş yapabileceğinin anlaşılabilmesi kontrol edilebilmesi
              * için bir yetki listesinin olmasına gerek vardır. Bu nedenle "USER", "ADMIN" vs gibi listeyi burada belirtmeliyiz
              */
             List<GrantedAuthority> authorities = new ArrayList<>();

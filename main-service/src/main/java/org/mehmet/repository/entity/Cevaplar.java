@@ -23,9 +23,8 @@ public class Cevaplar {
     String cevap;
     boolean istrue;
     @Enumerated(EnumType.STRING)
-
+    @Builder.Default
     State state = State.ONAYLANMIS;
     @Embedded
-
     TableAdd tableAdd;
 }

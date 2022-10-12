@@ -7,6 +7,7 @@ import org.mehmet.service.AuthService;
 import org.mehmet.config.security.JwtTokenManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -24,6 +25,7 @@ public class AuthController {
     private final JwtTokenManager jwtTokenManager;
 
     @GetMapping("/test")
+    @PreAuthorize("hasAuthority('USER')")
     public String getTestString(){
         return "Auth test";
     }

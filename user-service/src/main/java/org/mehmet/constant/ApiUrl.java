@@ -14,4 +14,7 @@ public class ApiUrl {
 
 
     public static final String UPDATE_PROFILE = "/updateprofile";
+    public static final String FIND_ALL = "/findall";
+    public static final String FIND_ALL_SLICE = "/findallslice";
+
 }
