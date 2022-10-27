@@ -20,6 +20,7 @@ public class CreateUserConsumer {
         log.info("User received: {}", user.toString());
         userProfileService.save(UserProfile.builder()
                         .email(user.getEmail())
+                        .password(user.getPassword())
                         .username(user.getUsername())
                         .authid(user.getAuthid())
                         .build());

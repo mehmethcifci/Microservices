@@ -15,22 +15,23 @@ spring:
   rabbitmq:
     host: localhost
     port: 5672
-    username: muhammet
+    username: mehmet
     password: Aa123456*
   zipkin:
     base-url: http://localhost:9411
     enabled: true
     service:
       name: user-service
-  datasource:
-    url: 'jdbc:postgresql://localhost:5432/YarismaProjesi'
-    username: 'postgres'
-    password: 'Nic3993.'
-    driver-class-name: org.postgresql.Driver
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
+  redis:
+    host: localhost
+    port: 6379
+  data:
+    mongodb:
+      host: 34.170.152.48
+      port: 19589
+      database: bilgeyarisma
+      username: bilgeadamuser
+      password: '147896325Mm.'
 
 raceapplication:
   url:

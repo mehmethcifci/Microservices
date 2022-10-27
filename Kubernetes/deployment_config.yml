@@ -8,14 +8,14 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: config-service    
+      app: config-server
   template:
     metadata:
       labels:
-        app: config-service
+        app: config-server
     spec:
       containers:        
-        - image: mehmethasancifci/configserver:v001
+        - image: mehmethasancifci/config-server:v001
           name:  podconfig
           resources:
             requests:
@@ -26,4 +26,15 @@ spec:
               cpu: "0.25"
           ports:
             - containerPort: 8888     
+          env:
+            - name: configserver_port
+              valueFrom:
+                secretKeyRef:
+                  name: yarismasecret
+                  key: configserver_port
+            - name:  zipkin_url
+              valueFrom:
+                secretKeyRef:
+                  name: yarismasecret
+                  key: zipkin_url
    
